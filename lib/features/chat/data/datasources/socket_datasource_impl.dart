@@ -15,7 +15,7 @@ class SocketDataSourceImpl implements SocketDataSource {
 
   @override
   Future<void> connect(String userId) async {
-    _socket = IO.io("http://10.0.2.2:3000", <String, dynamic>{
+    _socket = IO.io(ApiConstants.baseUrl, <String, dynamic>{
       'transports': ['websocket'],
       'autoConnect': true,
       'query': {'userId': userId},
