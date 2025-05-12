@@ -31,6 +31,7 @@ class SignupDatasourceImpl extends SignupDatasource {
       debugPrint("signup response: ${response.data}");
       if (response.statusCode == 200 || response.statusCode == 201) {
         prefs.setString('token', response.data['token']);
+        prefs.setString('userId', response.data['user']['_id']);
         return SignupModel.fromJson(response.data);
       } else {
         debugPrint("signup response: ${response.data}");

@@ -15,9 +15,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    ChatScreen(),
-    VideoCallScreen(),
-    ProfileScreen(),
+    const ChatScreen(),
+    const VideoCallScreen(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
             _selectedIndex = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
           BottomNavigationBarItem(
             icon: Icon(Icons.video_call),

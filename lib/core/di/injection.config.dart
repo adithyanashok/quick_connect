@@ -12,22 +12,45 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-
-import '../../features/signin/data/datasources/login_datasource.dart' as _i481;
-import '../../features/signin/data/repositories/login_repository_impl.dart'
-    as _i51;
-import '../../features/signin/domain/repositories/login_repository.dart'
-    as _i460;
-import '../../features/signin/domain/usecases/login_usecase.dart' as _i435;
-import '../../features/signin/presentation/bloc/login_bloc.dart' as _i7;
-import '../../features/signup/data/datasources/signup_datasource.dart' as _i898;
-import '../../features/signup/data/repositories/signup_repositary_imp.dart'
-    as _i669;
-import '../../features/signup/domain/repositories/signup_repository.dart'
-    as _i631;
-import '../../features/signup/domain/usecases/signup_usecase.dart' as _i1044;
-import '../../features/signup/presentation/bloc/signup_bloc.dart' as _i907;
-import 'register_module.dart' as _i291;
+import 'package:quick_connect/core/di/register_module.dart' as _i658;
+import 'package:quick_connect/features/chat/data/datasources/chat_datasource.dart'
+    as _i607;
+import 'package:quick_connect/features/chat/data/datasources/socket_datasource.dart'
+    as _i697;
+import 'package:quick_connect/features/chat/data/datasources/socket_datasource_impl.dart'
+    as _i1018;
+import 'package:quick_connect/features/chat/data/repositories/chat_repository_impl.dart'
+    as _i761;
+import 'package:quick_connect/features/chat/domain/repositories/chat_repository.dart'
+    as _i1;
+import 'package:quick_connect/features/chat/domain/usecases/connect_socket_usecase.dart'
+    as _i556;
+import 'package:quick_connect/features/chat/domain/usecases/get_chatted_users_usecase.dart'
+    as _i423;
+import 'package:quick_connect/features/chat/presentation/bloc/chat_bloc.dart'
+    as _i500;
+import 'package:quick_connect/features/chat/presentation/bloc/socket_bloc.dart'
+    as _i109;
+import 'package:quick_connect/features/signin/data/datasources/login_datasource.dart'
+    as _i533;
+import 'package:quick_connect/features/signin/data/repositories/login_repository_impl.dart'
+    as _i764;
+import 'package:quick_connect/features/signin/domain/repositories/login_repository.dart'
+    as _i831;
+import 'package:quick_connect/features/signin/domain/usecases/login_usecase.dart'
+    as _i266;
+import 'package:quick_connect/features/signin/presentation/bloc/login_bloc.dart'
+    as _i898;
+import 'package:quick_connect/features/signup/data/datasources/signup_datasource.dart'
+    as _i1061;
+import 'package:quick_connect/features/signup/data/repositories/signup_repositary_imp.dart'
+    as _i863;
+import 'package:quick_connect/features/signup/domain/repositories/signup_repository.dart'
+    as _i475;
+import 'package:quick_connect/features/signup/domain/usecases/signup_usecase.dart'
+    as _i338;
+import 'package:quick_connect/features/signup/presentation/bloc/signup_bloc.dart'
+    as _i620;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -38,30 +61,56 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final registerModule = _$RegisterModule();
     gh.singleton<_i361.Dio>(() => registerModule.dio);
-    gh.lazySingleton<_i481.LoginDatasource>(
-      () => _i481.LoginDatasourceImpl(gh<_i361.Dio>()),
+    gh.lazySingleton<_i533.LoginDatasource>(
+      () => _i533.LoginDatasourceImpl(gh<_i361.Dio>()),
     );
-    gh.lazySingleton<_i460.LoginRepository>(
-      () => _i51.LoginRepositoryImpl(gh<_i481.LoginDatasource>()),
+    gh.lazySingleton<_i607.ChatDatasource>(
+      () => _i607.ChatDatasourceImpl(gh<_i361.Dio>()),
     );
-    gh.lazySingleton<_i898.SignupDatasource>(
-      () => _i898.SignupDatasourceImpl(gh<_i361.Dio>()),
+    gh.lazySingleton<_i831.LoginRepository>(
+      () => _i764.LoginRepositoryImpl(gh<_i533.LoginDatasource>()),
     );
-    gh.lazySingleton<_i435.LoginUseCase>(
-      () => _i435.LoginUseCase(gh<_i460.LoginRepository>()),
+    gh.lazySingleton<_i697.SocketDataSource>(
+      () => _i1018.SocketDataSourceImpl(),
     );
-    gh.lazySingleton<_i631.SignupRepository>(
-      () => _i669.SignupRepositoryImpl(gh<_i898.SignupDatasource>()),
+    gh.lazySingleton<_i1061.SignupDatasource>(
+      () => _i1061.SignupDatasourceImpl(gh<_i361.Dio>()),
     );
-    gh.lazySingleton<_i1044.SignupUseCase>(
-      () => _i1044.SignupUseCase(gh<_i631.SignupRepository>()),
+    gh.lazySingleton<_i266.LoginUseCase>(
+      () => _i266.LoginUseCase(gh<_i831.LoginRepository>()),
     );
-    gh.factory<_i7.LoginBloc>(() => _i7.LoginBloc(gh<_i435.LoginUseCase>()));
-    gh.factory<_i907.SignupBloc>(
-      () => _i907.SignupBloc(gh<_i1044.SignupUseCase>()),
+    gh.lazySingleton<_i475.SignupRepository>(
+      () => _i863.SignupRepositoryImpl(gh<_i1061.SignupDatasource>()),
+    );
+    gh.lazySingleton<_i1.ChatRepository>(
+      () => _i761.ChatRepositoryImpl(
+        gh<_i607.ChatDatasource>(),
+        gh<_i697.SocketDataSource>(),
+      ),
+    );
+    gh.lazySingleton<_i338.SignupUseCase>(
+      () => _i338.SignupUseCase(gh<_i475.SignupRepository>()),
+    );
+    gh.factory<_i898.LoginBloc>(
+      () => _i898.LoginBloc(gh<_i266.LoginUseCase>()),
+    );
+    gh.factory<_i109.SocketBloc>(
+      () => _i109.SocketBloc(gh<_i1.ChatRepository>()),
+    );
+    gh.lazySingleton<_i556.ConnectSocketUseCase>(
+      () => _i556.ConnectSocketUseCase(gh<_i1.ChatRepository>()),
+    );
+    gh.lazySingleton<_i423.GetChattedUsersUseCase>(
+      () => _i423.GetChattedUsersUseCase(gh<_i1.ChatRepository>()),
+    );
+    gh.factory<_i620.SignupBloc>(
+      () => _i620.SignupBloc(gh<_i338.SignupUseCase>()),
+    );
+    gh.factory<_i500.ChatBloc>(
+      () => _i500.ChatBloc(gh<_i423.GetChattedUsersUseCase>()),
     );
     return this;
   }
 }
 
-class _$RegisterModule extends _i291.RegisterModule {}
+class _$RegisterModule extends _i658.RegisterModule {}

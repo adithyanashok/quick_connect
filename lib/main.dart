@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_connect/common/screens/splash_screen.dart';
 import 'package:quick_connect/core/di/injection.dart';
+import 'package:quick_connect/features/chat/presentation/bloc/chat_bloc.dart';
+import 'package:quick_connect/features/chat/presentation/bloc/socket_bloc.dart';
 import 'package:quick_connect/features/signin/presentation/bloc/login_bloc.dart';
 import 'package:quick_connect/features/signup/presentation/bloc/signup_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  configureInjection();
+  configureDependencies();
   runApp(const MyApp());
 }
 
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => getIt<SignupBloc>()),
         BlocProvider(create: (context) => getIt<LoginBloc>()),
+        BlocProvider(create: (context) => getIt<ChatBloc>()),
+        BlocProvider(create: (context) => getIt<SocketBloc>()),
       ],
       child: MaterialApp(
         title: 'QuickConnect',
