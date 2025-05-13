@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:bloc/src/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:quick_connect/features/chat/data/models/message_model.dart';
+import 'package:quick_connect/features/chat/data/models/message_model/message_model.dart';
 import 'package:quick_connect/features/chat/domain/repositories/chat_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,6 +14,9 @@ part 'socket_bloc.freezed.dart';
 @injectable
 class SocketBloc extends Bloc<SocketEvent, SocketState> {
   final ChatRepository _chatRepository;
+  StreamSubscription<MessageModel>? _messageSubscription;
+  StreamSubscription<String>? _typingSubscription;
+  StreamSubscription<String>? _stopTypingSubscription;
 
   SocketBloc(this._chatRepository) : super(const SocketState.initial()) {
     on<_Connect>(_onConnect);
@@ -30,13 +35,50 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
       emit(const SocketState.connecting());
       await _chatRepository.connect(userId ?? '');
       emit(const SocketState.connected());
+      _setupStreamListeners();
     } catch (e) {
       emit(SocketState.error(e.toString()));
     }
   }
 
+  void _setupStreamListeners() {
+    _messageSubscription?.cancel();
+    _typingSubscription?.cancel();
+    _stopTypingSubscription?.cancel();
+
+    _messageSubscription = _chatRepository.messageStream.listen(
+      (message) {
+        add(SocketEvent.receiveMessage(message));
+      },
+      onError: (error) {
+        emit(SocketState.error(error.toString()));
+      },
+    );
+
+    _typingSubscription = _chatRepository.typingStream.listen(
+      (userId) {
+        emit(SocketState.userTyping(userId));
+      },
+      onError: (error) {
+        emit(SocketState.error(error.toString()));
+      },
+    );
+
+    _stopTypingSubscription = _chatRepository.stopTypingStream.listen(
+      (userId) {
+        emit(SocketState.userStopTyping(userId));
+      },
+      onError: (error) {
+        emit(SocketState.error(error.toString()));
+      },
+    );
+  }
+
   void _onDisconnect(_Disconnect event, Emitter<SocketState> emit) async {
     await _chatRepository.disconnect();
+    _messageSubscription?.cancel();
+    _typingSubscription?.cancel();
+    _stopTypingSubscription?.cancel();
     emit(const SocketState.disconnected());
   }
 
@@ -70,6 +112,9 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
 
   @override
   Future<void> close() {
+    _messageSubscription?.cancel();
+    _typingSubscription?.cancel();
+    _stopTypingSubscription?.cancel();
     _chatRepository.dispose();
     return super.close();
   }

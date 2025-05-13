@@ -3,8 +3,8 @@ import 'package:quick_connect/core/colors.dart';
 
 class MessageBubble extends StatelessWidget {
   final bool isMe;
-
-  const MessageBubble({super.key, required this.isMe});
+  final String message;
+  const MessageBubble({super.key, required this.isMe, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class MessageBubble extends StatelessWidget {
           ),
         ),
         child: Text(
-          'This is a message',
+          message,
           style: TextStyle(color: isMe ? Colors.white : Colors.black),
         ),
       ),

@@ -6,13 +6,14 @@ class ChatTile extends StatelessWidget {
   final String name;
   final String lastMessage;
   final String time;
-
+  final VoidCallback onTap;
   const ChatTile({
     super.key,
     required this.imageUrl,
     required this.name,
     required this.lastMessage,
     required this.time,
+    required this.onTap,
   });
 
   @override
@@ -22,15 +23,7 @@ class ChatTile extends StatelessWidget {
       title: Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Text(lastMessage),
       trailing: Text(time, style: TextStyle(color: Colors.grey)),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder:
-                (context) => ChatDetailScreen(name: name, imageUrl: imageUrl),
-          ),
-        );
-      },
+      onTap: onTap,
     );
   }
 }

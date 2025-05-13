@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MessageModel {
 
- String get sender; String get receiver; String get content; DateTime get timestamp;@JsonKey(name: '_id') String get id;
+ String get sender; String get receiver; String get content; DateTime get timestamp; bool get read;@JsonKey(name: '_id') String get id;@JsonKey(name: '__v') dynamic get version;
 /// Create a copy of MessageModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $MessageModelCopyWith<MessageModel> get copyWith => _$MessageModelCopyWithImpl<M
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MessageModel&&(identical(other.sender, sender) || other.sender == sender)&&(identical(other.receiver, receiver) || other.receiver == receiver)&&(identical(other.content, content) || other.content == content)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp)&&(identical(other.id, id) || other.id == id));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MessageModel&&(identical(other.sender, sender) || other.sender == sender)&&(identical(other.receiver, receiver) || other.receiver == receiver)&&(identical(other.content, content) || other.content == content)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp)&&(identical(other.read, read) || other.read == read)&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.version, version));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,sender,receiver,content,timestamp,id);
+int get hashCode => Object.hash(runtimeType,sender,receiver,content,timestamp,read,id,const DeepCollectionEquality().hash(version));
 
 @override
 String toString() {
-  return 'MessageModel(sender: $sender, receiver: $receiver, content: $content, timestamp: $timestamp, id: $id)';
+  return 'MessageModel(sender: $sender, receiver: $receiver, content: $content, timestamp: $timestamp, read: $read, id: $id, version: $version)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $MessageModelCopyWith<$Res>  {
   factory $MessageModelCopyWith(MessageModel value, $Res Function(MessageModel) _then) = _$MessageModelCopyWithImpl;
 @useResult
 $Res call({
- String sender, String receiver, String content, DateTime timestamp,@JsonKey(name: '_id') String id
+ String sender, String receiver, String content, DateTime timestamp, bool read,@JsonKey(name: '_id') String id,@JsonKey(name: '__v') dynamic version
 });
 
 
@@ -66,14 +66,16 @@ class _$MessageModelCopyWithImpl<$Res>
 
 /// Create a copy of MessageModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? sender = null,Object? receiver = null,Object? content = null,Object? timestamp = null,Object? id = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? sender = null,Object? receiver = null,Object? content = null,Object? timestamp = null,Object? read = null,Object? id = null,Object? version = freezed,}) {
   return _then(_self.copyWith(
 sender: null == sender ? _self.sender : sender // ignore: cast_nullable_to_non_nullable
 as String,receiver: null == receiver ? _self.receiver : receiver // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
-as DateTime,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,
+as DateTime,read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as bool,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,version: freezed == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as dynamic,
   ));
 }
 
@@ -84,14 +86,16 @@ as String,
 @JsonSerializable()
 
 class _MessageModel implements MessageModel {
-  const _MessageModel({required this.sender, required this.receiver, required this.content, required this.timestamp, @JsonKey(name: '_id') required this.id});
+  const _MessageModel({required this.sender, required this.receiver, required this.content, required this.timestamp, required this.read, @JsonKey(name: '_id') required this.id, @JsonKey(name: '__v') required this.version});
   factory _MessageModel.fromJson(Map<String, dynamic> json) => _$MessageModelFromJson(json);
 
 @override final  String sender;
 @override final  String receiver;
 @override final  String content;
 @override final  DateTime timestamp;
+@override final  bool read;
 @override@JsonKey(name: '_id') final  String id;
+@override@JsonKey(name: '__v') final  dynamic version;
 
 /// Create a copy of MessageModel
 /// with the given fields replaced by the non-null parameter values.
@@ -106,16 +110,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MessageModel&&(identical(other.sender, sender) || other.sender == sender)&&(identical(other.receiver, receiver) || other.receiver == receiver)&&(identical(other.content, content) || other.content == content)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp)&&(identical(other.id, id) || other.id == id));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MessageModel&&(identical(other.sender, sender) || other.sender == sender)&&(identical(other.receiver, receiver) || other.receiver == receiver)&&(identical(other.content, content) || other.content == content)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp)&&(identical(other.read, read) || other.read == read)&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.version, version));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,sender,receiver,content,timestamp,id);
+int get hashCode => Object.hash(runtimeType,sender,receiver,content,timestamp,read,id,const DeepCollectionEquality().hash(version));
 
 @override
 String toString() {
-  return 'MessageModel(sender: $sender, receiver: $receiver, content: $content, timestamp: $timestamp, id: $id)';
+  return 'MessageModel(sender: $sender, receiver: $receiver, content: $content, timestamp: $timestamp, read: $read, id: $id, version: $version)';
 }
 
 
@@ -126,7 +130,7 @@ abstract mixin class _$MessageModelCopyWith<$Res> implements $MessageModelCopyWi
   factory _$MessageModelCopyWith(_MessageModel value, $Res Function(_MessageModel) _then) = __$MessageModelCopyWithImpl;
 @override @useResult
 $Res call({
- String sender, String receiver, String content, DateTime timestamp,@JsonKey(name: '_id') String id
+ String sender, String receiver, String content, DateTime timestamp, bool read,@JsonKey(name: '_id') String id,@JsonKey(name: '__v') dynamic version
 });
 
 
@@ -143,14 +147,16 @@ class __$MessageModelCopyWithImpl<$Res>
 
 /// Create a copy of MessageModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? sender = null,Object? receiver = null,Object? content = null,Object? timestamp = null,Object? id = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? sender = null,Object? receiver = null,Object? content = null,Object? timestamp = null,Object? read = null,Object? id = null,Object? version = freezed,}) {
   return _then(_MessageModel(
 sender: null == sender ? _self.sender : sender // ignore: cast_nullable_to_non_nullable
 as String,receiver: null == receiver ? _self.receiver : receiver // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,timestamp: null == timestamp ? _self.timestamp : timestamp // ignore: cast_nullable_to_non_nullable
-as DateTime,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,
+as DateTime,read: null == read ? _self.read : read // ignore: cast_nullable_to_non_nullable
+as bool,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,version: freezed == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as dynamic,
   ));
 }
 

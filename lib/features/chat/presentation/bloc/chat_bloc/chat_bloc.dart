@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:quick_connect/features/chat/data/models/chatted_users_model.dart';
+import 'package:quick_connect/features/chat/data/models/chatted_users_model/chatted_users_model.dart';
 import 'package:quick_connect/features/chat/domain/usecases/get_chatted_users_usecase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

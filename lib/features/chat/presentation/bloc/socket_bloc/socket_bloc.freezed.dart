@@ -499,8 +499,8 @@ $SocketStateCopyWith(SocketState _, $Res Function(SocketState) __);
 /// @nodoc
 
 
-class _Initial implements SocketState {
-  const _Initial();
+class Initial implements SocketState {
+  const Initial();
   
 
 
@@ -510,7 +510,7 @@ class _Initial implements SocketState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Initial);
 }
 
 
@@ -531,8 +531,8 @@ String toString() {
 /// @nodoc
 
 
-class _Connecting implements SocketState {
-  const _Connecting();
+class Connecting implements SocketState {
+  const Connecting();
   
 
 
@@ -542,7 +542,7 @@ class _Connecting implements SocketState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Connecting);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Connecting);
 }
 
 
@@ -563,8 +563,8 @@ String toString() {
 /// @nodoc
 
 
-class _Connected implements SocketState {
-  const _Connected();
+class Connected implements SocketState {
+  const Connected();
   
 
 
@@ -574,7 +574,7 @@ class _Connected implements SocketState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Connected);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Connected);
 }
 
 
@@ -595,8 +595,8 @@ String toString() {
 /// @nodoc
 
 
-class _Disconnected implements SocketState {
-  const _Disconnected();
+class Disconnected implements SocketState {
+  const Disconnected();
   
 
 
@@ -606,7 +606,7 @@ class _Disconnected implements SocketState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Disconnected);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Disconnected);
 }
 
 
@@ -627,8 +627,8 @@ String toString() {
 /// @nodoc
 
 
-class _Error implements SocketState {
-  const _Error(this.message);
+class SocketError implements SocketState {
+  const SocketError(this.message);
   
 
  final  String message;
@@ -637,13 +637,13 @@ class _Error implements SocketState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$ErrorCopyWith<_Error> get copyWith => __$ErrorCopyWithImpl<_Error>(this, _$identity);
+$SocketErrorCopyWith<SocketError> get copyWith => _$SocketErrorCopyWithImpl<SocketError>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Error&&(identical(other.message, message) || other.message == message));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SocketError&&(identical(other.message, message) || other.message == message));
 }
 
 
@@ -659,8 +659,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$ErrorCopyWith<$Res> implements $SocketStateCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) _then) = __$ErrorCopyWithImpl;
+abstract mixin class $SocketErrorCopyWith<$Res> implements $SocketStateCopyWith<$Res> {
+  factory $SocketErrorCopyWith(SocketError value, $Res Function(SocketError) _then) = _$SocketErrorCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -671,17 +671,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(this._self, this._then);
+class _$SocketErrorCopyWithImpl<$Res>
+    implements $SocketErrorCopyWith<$Res> {
+  _$SocketErrorCopyWithImpl(this._self, this._then);
 
-  final _Error _self;
-  final $Res Function(_Error) _then;
+  final SocketError _self;
+  final $Res Function(SocketError) _then;
 
 /// Create a copy of SocketState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(_Error(
+  return _then(SocketError(
 null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -693,8 +693,8 @@ as String,
 /// @nodoc
 
 
-class _MessageSent implements SocketState {
-  const _MessageSent(this.message);
+class MessageSent implements SocketState {
+  const MessageSent(this.message);
   
 
  final  MessageModel message;
@@ -703,13 +703,13 @@ class _MessageSent implements SocketState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$MessageSentCopyWith<_MessageSent> get copyWith => __$MessageSentCopyWithImpl<_MessageSent>(this, _$identity);
+$MessageSentCopyWith<MessageSent> get copyWith => _$MessageSentCopyWithImpl<MessageSent>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MessageSent&&(identical(other.message, message) || other.message == message));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MessageSent&&(identical(other.message, message) || other.message == message));
 }
 
 
@@ -725,8 +725,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$MessageSentCopyWith<$Res> implements $SocketStateCopyWith<$Res> {
-  factory _$MessageSentCopyWith(_MessageSent value, $Res Function(_MessageSent) _then) = __$MessageSentCopyWithImpl;
+abstract mixin class $MessageSentCopyWith<$Res> implements $SocketStateCopyWith<$Res> {
+  factory $MessageSentCopyWith(MessageSent value, $Res Function(MessageSent) _then) = _$MessageSentCopyWithImpl;
 @useResult
 $Res call({
  MessageModel message
@@ -737,17 +737,17 @@ $MessageModelCopyWith<$Res> get message;
 
 }
 /// @nodoc
-class __$MessageSentCopyWithImpl<$Res>
-    implements _$MessageSentCopyWith<$Res> {
-  __$MessageSentCopyWithImpl(this._self, this._then);
+class _$MessageSentCopyWithImpl<$Res>
+    implements $MessageSentCopyWith<$Res> {
+  _$MessageSentCopyWithImpl(this._self, this._then);
 
-  final _MessageSent _self;
-  final $Res Function(_MessageSent) _then;
+  final MessageSent _self;
+  final $Res Function(MessageSent) _then;
 
 /// Create a copy of SocketState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(_MessageSent(
+  return _then(MessageSent(
 null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as MessageModel,
   ));
@@ -768,8 +768,8 @@ $MessageModelCopyWith<$Res> get message {
 /// @nodoc
 
 
-class _MessageReceived implements SocketState {
-  const _MessageReceived(this.message);
+class MessageReceived implements SocketState {
+  const MessageReceived(this.message);
   
 
  final  MessageModel message;
@@ -778,13 +778,13 @@ class _MessageReceived implements SocketState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$MessageReceivedCopyWith<_MessageReceived> get copyWith => __$MessageReceivedCopyWithImpl<_MessageReceived>(this, _$identity);
+$MessageReceivedCopyWith<MessageReceived> get copyWith => _$MessageReceivedCopyWithImpl<MessageReceived>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MessageReceived&&(identical(other.message, message) || other.message == message));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MessageReceived&&(identical(other.message, message) || other.message == message));
 }
 
 
@@ -800,8 +800,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$MessageReceivedCopyWith<$Res> implements $SocketStateCopyWith<$Res> {
-  factory _$MessageReceivedCopyWith(_MessageReceived value, $Res Function(_MessageReceived) _then) = __$MessageReceivedCopyWithImpl;
+abstract mixin class $MessageReceivedCopyWith<$Res> implements $SocketStateCopyWith<$Res> {
+  factory $MessageReceivedCopyWith(MessageReceived value, $Res Function(MessageReceived) _then) = _$MessageReceivedCopyWithImpl;
 @useResult
 $Res call({
  MessageModel message
@@ -812,17 +812,17 @@ $MessageModelCopyWith<$Res> get message;
 
 }
 /// @nodoc
-class __$MessageReceivedCopyWithImpl<$Res>
-    implements _$MessageReceivedCopyWith<$Res> {
-  __$MessageReceivedCopyWithImpl(this._self, this._then);
+class _$MessageReceivedCopyWithImpl<$Res>
+    implements $MessageReceivedCopyWith<$Res> {
+  _$MessageReceivedCopyWithImpl(this._self, this._then);
 
-  final _MessageReceived _self;
-  final $Res Function(_MessageReceived) _then;
+  final MessageReceived _self;
+  final $Res Function(MessageReceived) _then;
 
 /// Create a copy of SocketState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(_MessageReceived(
+  return _then(MessageReceived(
 null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as MessageModel,
   ));
@@ -843,8 +843,8 @@ $MessageModelCopyWith<$Res> get message {
 /// @nodoc
 
 
-class _UserTyping implements SocketState {
-  const _UserTyping(this.userId);
+class UserTyping implements SocketState {
+  const UserTyping(this.userId);
   
 
  final  String userId;
@@ -853,13 +853,13 @@ class _UserTyping implements SocketState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$UserTypingCopyWith<_UserTyping> get copyWith => __$UserTypingCopyWithImpl<_UserTyping>(this, _$identity);
+$UserTypingCopyWith<UserTyping> get copyWith => _$UserTypingCopyWithImpl<UserTyping>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserTyping&&(identical(other.userId, userId) || other.userId == userId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserTyping&&(identical(other.userId, userId) || other.userId == userId));
 }
 
 
@@ -875,8 +875,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$UserTypingCopyWith<$Res> implements $SocketStateCopyWith<$Res> {
-  factory _$UserTypingCopyWith(_UserTyping value, $Res Function(_UserTyping) _then) = __$UserTypingCopyWithImpl;
+abstract mixin class $UserTypingCopyWith<$Res> implements $SocketStateCopyWith<$Res> {
+  factory $UserTypingCopyWith(UserTyping value, $Res Function(UserTyping) _then) = _$UserTypingCopyWithImpl;
 @useResult
 $Res call({
  String userId
@@ -887,17 +887,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$UserTypingCopyWithImpl<$Res>
-    implements _$UserTypingCopyWith<$Res> {
-  __$UserTypingCopyWithImpl(this._self, this._then);
+class _$UserTypingCopyWithImpl<$Res>
+    implements $UserTypingCopyWith<$Res> {
+  _$UserTypingCopyWithImpl(this._self, this._then);
 
-  final _UserTyping _self;
-  final $Res Function(_UserTyping) _then;
+  final UserTyping _self;
+  final $Res Function(UserTyping) _then;
 
 /// Create a copy of SocketState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? userId = null,}) {
-  return _then(_UserTyping(
+  return _then(UserTyping(
 null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -909,8 +909,8 @@ as String,
 /// @nodoc
 
 
-class _UserStopTyping implements SocketState {
-  const _UserStopTyping(this.userId);
+class UserStopTyping implements SocketState {
+  const UserStopTyping(this.userId);
   
 
  final  String userId;
@@ -919,13 +919,13 @@ class _UserStopTyping implements SocketState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$UserStopTypingCopyWith<_UserStopTyping> get copyWith => __$UserStopTypingCopyWithImpl<_UserStopTyping>(this, _$identity);
+$UserStopTypingCopyWith<UserStopTyping> get copyWith => _$UserStopTypingCopyWithImpl<UserStopTyping>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserStopTyping&&(identical(other.userId, userId) || other.userId == userId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserStopTyping&&(identical(other.userId, userId) || other.userId == userId));
 }
 
 
@@ -941,8 +941,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class _$UserStopTypingCopyWith<$Res> implements $SocketStateCopyWith<$Res> {
-  factory _$UserStopTypingCopyWith(_UserStopTyping value, $Res Function(_UserStopTyping) _then) = __$UserStopTypingCopyWithImpl;
+abstract mixin class $UserStopTypingCopyWith<$Res> implements $SocketStateCopyWith<$Res> {
+  factory $UserStopTypingCopyWith(UserStopTyping value, $Res Function(UserStopTyping) _then) = _$UserStopTypingCopyWithImpl;
 @useResult
 $Res call({
  String userId
@@ -953,17 +953,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$UserStopTypingCopyWithImpl<$Res>
-    implements _$UserStopTypingCopyWith<$Res> {
-  __$UserStopTypingCopyWithImpl(this._self, this._then);
+class _$UserStopTypingCopyWithImpl<$Res>
+    implements $UserStopTypingCopyWith<$Res> {
+  _$UserStopTypingCopyWithImpl(this._self, this._then);
 
-  final _UserStopTyping _self;
-  final $Res Function(_UserStopTyping) _then;
+  final UserStopTyping _self;
+  final $Res Function(UserStopTyping) _then;
 
 /// Create a copy of SocketState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? userId = null,}) {
-  return _then(_UserStopTyping(
+  return _then(UserStopTyping(
 null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as String,
   ));

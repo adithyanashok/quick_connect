@@ -139,8 +139,8 @@ $ChatStateCopyWith(ChatState _, $Res Function(ChatState) __);
 /// @nodoc
 
 
-class Initial implements ChatState {
-  const Initial();
+class ChatInitial implements ChatState {
+  const ChatInitial();
   
 
 
@@ -150,7 +150,7 @@ class Initial implements ChatState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Initial);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChatInitial);
 }
 
 
@@ -171,8 +171,8 @@ String toString() {
 /// @nodoc
 
 
-class Loading implements ChatState {
-  const Loading();
+class ChatLoading implements ChatState {
+  const ChatLoading();
   
 
 
@@ -182,7 +182,7 @@ class Loading implements ChatState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Loading);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChatLoading);
 }
 
 
@@ -203,8 +203,8 @@ String toString() {
 /// @nodoc
 
 
-class Success implements ChatState {
-  const Success(this.chattedUsers);
+class ChatSuccess implements ChatState {
+  const ChatSuccess(this.chattedUsers);
   
 
  final  ChattedUsersModel chattedUsers;
@@ -213,13 +213,13 @@ class Success implements ChatState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$SuccessCopyWith<Success> get copyWith => _$SuccessCopyWithImpl<Success>(this, _$identity);
+$ChatSuccessCopyWith<ChatSuccess> get copyWith => _$ChatSuccessCopyWithImpl<ChatSuccess>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Success&&(identical(other.chattedUsers, chattedUsers) || other.chattedUsers == chattedUsers));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChatSuccess&&(identical(other.chattedUsers, chattedUsers) || other.chattedUsers == chattedUsers));
 }
 
 
@@ -235,8 +235,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $SuccessCopyWith<$Res> implements $ChatStateCopyWith<$Res> {
-  factory $SuccessCopyWith(Success value, $Res Function(Success) _then) = _$SuccessCopyWithImpl;
+abstract mixin class $ChatSuccessCopyWith<$Res> implements $ChatStateCopyWith<$Res> {
+  factory $ChatSuccessCopyWith(ChatSuccess value, $Res Function(ChatSuccess) _then) = _$ChatSuccessCopyWithImpl;
 @useResult
 $Res call({
  ChattedUsersModel chattedUsers
@@ -247,17 +247,17 @@ $ChattedUsersModelCopyWith<$Res> get chattedUsers;
 
 }
 /// @nodoc
-class _$SuccessCopyWithImpl<$Res>
-    implements $SuccessCopyWith<$Res> {
-  _$SuccessCopyWithImpl(this._self, this._then);
+class _$ChatSuccessCopyWithImpl<$Res>
+    implements $ChatSuccessCopyWith<$Res> {
+  _$ChatSuccessCopyWithImpl(this._self, this._then);
 
-  final Success _self;
-  final $Res Function(Success) _then;
+  final ChatSuccess _self;
+  final $Res Function(ChatSuccess) _then;
 
 /// Create a copy of ChatState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? chattedUsers = null,}) {
-  return _then(Success(
+  return _then(ChatSuccess(
 null == chattedUsers ? _self.chattedUsers : chattedUsers // ignore: cast_nullable_to_non_nullable
 as ChattedUsersModel,
   ));
@@ -278,8 +278,8 @@ $ChattedUsersModelCopyWith<$Res> get chattedUsers {
 /// @nodoc
 
 
-class Error implements ChatState {
-  const Error(this.message);
+class ChatError implements ChatState {
+  const ChatError(this.message);
   
 
  final  String message;
@@ -288,13 +288,13 @@ class Error implements ChatState {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$ErrorCopyWith<Error> get copyWith => _$ErrorCopyWithImpl<Error>(this, _$identity);
+$ChatErrorCopyWith<ChatError> get copyWith => _$ChatErrorCopyWithImpl<ChatError>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Error&&(identical(other.message, message) || other.message == message));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChatError&&(identical(other.message, message) || other.message == message));
 }
 
 
@@ -310,8 +310,8 @@ String toString() {
 }
 
 /// @nodoc
-abstract mixin class $ErrorCopyWith<$Res> implements $ChatStateCopyWith<$Res> {
-  factory $ErrorCopyWith(Error value, $Res Function(Error) _then) = _$ErrorCopyWithImpl;
+abstract mixin class $ChatErrorCopyWith<$Res> implements $ChatStateCopyWith<$Res> {
+  factory $ChatErrorCopyWith(ChatError value, $Res Function(ChatError) _then) = _$ChatErrorCopyWithImpl;
 @useResult
 $Res call({
  String message
@@ -322,17 +322,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$ErrorCopyWithImpl<$Res>
-    implements $ErrorCopyWith<$Res> {
-  _$ErrorCopyWithImpl(this._self, this._then);
+class _$ChatErrorCopyWithImpl<$Res>
+    implements $ChatErrorCopyWith<$Res> {
+  _$ChatErrorCopyWithImpl(this._self, this._then);
 
-  final Error _self;
-  final $Res Function(Error) _then;
+  final ChatError _self;
+  final $Res Function(ChatError) _then;
 
 /// Create a copy of ChatState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(Error(
+  return _then(ChatError(
 null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,
   ));

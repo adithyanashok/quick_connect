@@ -15,22 +15,32 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:quick_connect/core/di/register_module.dart' as _i658;
 import 'package:quick_connect/features/chat/data/datasources/chat_datasource.dart'
     as _i607;
+import 'package:quick_connect/features/chat/data/datasources/message_datasource.dart'
+    as _i291;
 import 'package:quick_connect/features/chat/data/datasources/socket_datasource.dart'
     as _i697;
 import 'package:quick_connect/features/chat/data/datasources/socket_datasource_impl.dart'
     as _i1018;
 import 'package:quick_connect/features/chat/data/repositories/chat_repository_impl.dart'
     as _i761;
+import 'package:quick_connect/features/chat/data/repositories/message_repository_impl.dart'
+    as _i552;
 import 'package:quick_connect/features/chat/domain/repositories/chat_repository.dart'
     as _i1;
+import 'package:quick_connect/features/chat/domain/repositories/message_repository.dart'
+    as _i378;
 import 'package:quick_connect/features/chat/domain/usecases/connect_socket_usecase.dart'
     as _i556;
 import 'package:quick_connect/features/chat/domain/usecases/get_chatted_users_usecase.dart'
     as _i423;
-import 'package:quick_connect/features/chat/presentation/bloc/chat_bloc.dart'
-    as _i500;
-import 'package:quick_connect/features/chat/presentation/bloc/socket_bloc.dart'
-    as _i109;
+import 'package:quick_connect/features/chat/domain/usecases/get_message_usecase.dart'
+    as _i357;
+import 'package:quick_connect/features/chat/presentation/bloc/chat_bloc/chat_bloc.dart'
+    as _i523;
+import 'package:quick_connect/features/chat/presentation/bloc/message/message_bloc.dart'
+    as _i931;
+import 'package:quick_connect/features/chat/presentation/bloc/socket_bloc/socket_bloc.dart'
+    as _i1044;
 import 'package:quick_connect/features/signin/data/datasources/login_datasource.dart'
     as _i533;
 import 'package:quick_connect/features/signin/data/repositories/login_repository_impl.dart'
@@ -61,6 +71,9 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final registerModule = _$RegisterModule();
     gh.singleton<_i361.Dio>(() => registerModule.dio);
+    gh.lazySingleton<_i291.MessageDatasource>(
+      () => _i291.MessageDatasourceImpl(gh<_i361.Dio>()),
+    );
     gh.lazySingleton<_i533.LoginDatasource>(
       () => _i533.LoginDatasourceImpl(gh<_i361.Dio>()),
     );
@@ -73,8 +86,17 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i697.SocketDataSource>(
       () => _i1018.SocketDataSourceImpl(),
     );
+    gh.lazySingleton<_i378.MessageRepository>(
+      () => _i552.MessageRepositoryImpl(
+        gh<_i607.ChatDatasource>(),
+        gh<_i697.SocketDataSource>(),
+      ),
+    );
     gh.lazySingleton<_i1061.SignupDatasource>(
       () => _i1061.SignupDatasourceImpl(gh<_i361.Dio>()),
+    );
+    gh.lazySingleton<_i357.GetMessageUsecase>(
+      () => _i357.GetMessageUsecase(gh<_i378.MessageRepository>()),
     );
     gh.lazySingleton<_i266.LoginUseCase>(
       () => _i266.LoginUseCase(gh<_i831.LoginRepository>()),
@@ -94,8 +116,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i898.LoginBloc>(
       () => _i898.LoginBloc(gh<_i266.LoginUseCase>()),
     );
-    gh.factory<_i109.SocketBloc>(
-      () => _i109.SocketBloc(gh<_i1.ChatRepository>()),
+    gh.factory<_i931.MessageBloc>(
+      () => _i931.MessageBloc(gh<_i357.GetMessageUsecase>()),
+    );
+    gh.factory<_i1044.SocketBloc>(
+      () => _i1044.SocketBloc(gh<_i1.ChatRepository>()),
     );
     gh.lazySingleton<_i556.ConnectSocketUseCase>(
       () => _i556.ConnectSocketUseCase(gh<_i1.ChatRepository>()),
@@ -106,8 +131,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i620.SignupBloc>(
       () => _i620.SignupBloc(gh<_i338.SignupUseCase>()),
     );
-    gh.factory<_i500.ChatBloc>(
-      () => _i500.ChatBloc(gh<_i423.GetChattedUsersUseCase>()),
+    gh.factory<_i523.ChatBloc>(
+      () => _i523.ChatBloc(gh<_i423.GetChattedUsersUseCase>()),
     );
     return this;
   }

@@ -10,7 +10,9 @@ class MessageModel with _$MessageModel {
     required String receiver,
     required String content,
     required DateTime timestamp,
+    required bool read,
     @JsonKey(name: '_id') required String id,
+    @JsonKey(name: '__v') required dynamic version,
   }) = _MessageModel;
 
   factory MessageModel.fromJson(Map<String, dynamic> json) =>

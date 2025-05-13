@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_connect/common/screens/splash_screen.dart';
 import 'package:quick_connect/core/di/injection.dart';
-import 'package:quick_connect/features/chat/presentation/bloc/chat_bloc.dart';
-import 'package:quick_connect/features/chat/presentation/bloc/socket_bloc.dart';
+import 'package:quick_connect/features/chat/presentation/bloc/chat_bloc/chat_bloc.dart';
+import 'package:quick_connect/features/chat/presentation/bloc/message/message_bloc.dart';
+import 'package:quick_connect/features/chat/presentation/bloc/socket_bloc/socket_bloc.dart';
 import 'package:quick_connect/features/signin/presentation/bloc/login_bloc.dart';
 import 'package:quick_connect/features/signup/presentation/bloc/signup_bloc.dart';
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<LoginBloc>()),
         BlocProvider(create: (context) => getIt<ChatBloc>()),
         BlocProvider(create: (context) => getIt<SocketBloc>()),
+        BlocProvider(create: (context) => getIt<MessageBloc>()),
       ],
       child: MaterialApp(
         title: 'QuickConnect',
