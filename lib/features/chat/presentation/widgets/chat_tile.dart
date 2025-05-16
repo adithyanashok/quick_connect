@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quick_connect/features/chat/presentation/screens/chat_detail_screen.dart';
 
 class ChatTile extends StatelessWidget {
   final String imageUrl;
@@ -20,9 +19,9 @@ class ChatTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(backgroundImage: AssetImage(imageUrl), radius: 30),
-      title: Text(name, style: TextStyle(fontWeight: FontWeight.bold)),
+      title: Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Text(lastMessage),
-      trailing: Text(time, style: TextStyle(color: Colors.grey)),
+      trailing: Text(time, style: const TextStyle(color: Colors.grey)),
       onTap: onTap,
     );
   }

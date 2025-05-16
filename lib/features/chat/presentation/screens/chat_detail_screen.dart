@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_connect/core/colors.dart';
 import 'package:quick_connect/core/utils/snackbar_utils.dart';
 import 'package:quick_connect/features/chat/data/models/message_model/message_model.dart';
-import 'package:quick_connect/features/chat/presentation/bloc/chat_bloc/chat_bloc.dart';
 import 'package:quick_connect/features/chat/presentation/bloc/message/message_bloc.dart';
 import 'package:quick_connect/features/chat/presentation/bloc/socket_bloc/socket_bloc.dart';
 import 'package:quick_connect/features/chat/presentation/widgets/message_bubble.dart';
@@ -48,8 +47,8 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
 
       if (mounted) {
         context.read<MessageBloc>().add(
-          MessageEvent.getMessages(widget.receiverId),
-        );
+              MessageEvent.getMessages(widget.receiverId),
+            );
         context.read<SocketBloc>().add(const SocketEvent.connect());
 
         // Add a small delay to ensure the list is built before scrolling
@@ -85,22 +84,22 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
 
     try {
       context.read<SocketBloc>().add(
-        SocketEvent.typing(
-          sender: _currentUserId!,
-          receiver: widget.receiverId,
-        ),
-      );
+            SocketEvent.typing(
+              sender: _currentUserId!,
+              receiver: widget.receiverId,
+            ),
+          );
 
       _typingTimer?.cancel();
       _typingTimer = Timer(const Duration(seconds: 1), () {
         if (!mounted || _currentUserId == null) return;
 
         context.read<SocketBloc>().add(
-          SocketEvent.stopTyping(
-            sender: _currentUserId!,
-            receiver: widget.receiverId,
-          ),
-        );
+              SocketEvent.stopTyping(
+                sender: _currentUserId!,
+                receiver: widget.receiverId,
+              ),
+            );
       });
     } catch (e) {
       print('Error handling typing: $e');
@@ -206,14 +205,6 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
               ],
             ),
             backgroundColor: primaryColor,
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.call, color: Colors.white),
-                onPressed: () {
-                  // Handle call action
-                },
-              ),
-            ],
           ),
           body: BlocListener<SocketBloc, SocketState>(
             listener: (context, socketState) {
@@ -223,55 +214,49 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                 if (socketState is SocketError) {
                   SnackbarUtils.showErrorSnackbar(context, socketState.message);
                 } else if (socketState is MessageSent) {
-                  print('message sent');
                   if (socketState.message.receiver == widget.receiverId ||
                       socketState.message.sender == widget.receiverId) {
                     _handleNewMessage(socketState.message);
                   }
                 } else if (socketState is MessageReceived) {
-                  print('message received');
                   if (socketState.message.receiver == widget.receiverId ||
                       socketState.message.sender == widget.receiverId) {
                     _handleNewMessage(socketState.message);
                   }
                 }
               } catch (e) {
-                print('Error in socket listener: $e');
+                debugPrint('Error in socket listener: $e');
               }
             },
             child: SafeArea(
               child: Column(
                 children: [
                   Expanded(
-                    child:
-                        state is MessageLoading && _messages.isEmpty
-                            ? const Center(child: CircularProgressIndicator())
-                            : NotificationListener<ScrollNotification>(
-                              onNotification: (
-                                ScrollNotification notification,
-                              ) {
-                                if (notification is ScrollEndNotification) {
-                                  if (notification.metrics.pixels ==
-                                      notification.metrics.maxScrollExtent) {
-                                    // User has scrolled to bottom
-                                  }
-                                }
-                                return true;
+                    child: state is MessageLoading && _messages.isEmpty
+                        ? const Center(child: CircularProgressIndicator())
+                        : NotificationListener<ScrollNotification>(
+                            onNotification: (
+                              ScrollNotification notification,
+                            ) {
+                              if (notification is ScrollEndNotification) {
+                                if (notification.metrics.pixels ==
+                                    notification.metrics.maxScrollExtent) {}
+                              }
+                              return true;
+                            },
+                            child: ListView.builder(
+                              controller: _scrollController,
+                              padding: const EdgeInsets.all(10),
+                              itemCount: _messages.length,
+                              itemBuilder: (context, index) {
+                                return MessageBubble(
+                                  isMe: _messages[index].sender !=
+                                      widget.receiverId,
+                                  message: _messages[index].content,
+                                );
                               },
-                              child: ListView.builder(
-                                controller: _scrollController,
-                                padding: const EdgeInsets.all(10),
-                                itemCount: _messages.length,
-                                itemBuilder: (context, index) {
-                                  return MessageBubble(
-                                    isMe:
-                                        _messages[index].sender !=
-                                        widget.receiverId,
-                                    message: _messages[index].content,
-                                  );
-                                },
-                              ),
                             ),
+                          ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -290,12 +275,13 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.send, color: primaryColor),
+                          icon: const Icon(Icons.send, color: primaryColor),
                           onPressed: () async {
                             if (!mounted ||
                                 _messageController.text.isEmpty ||
-                                _currentUserId == null)
+                                _currentUserId == null) {
                               return;
+                            }
 
                             try {
                               final message = MessageModel(
@@ -304,15 +290,15 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                                 receiver: widget.receiverId,
                                 timestamp: DateTime.now(),
                                 read: false,
-                                id:
-                                    DateTime.now().millisecondsSinceEpoch
-                                        .toString(),
+                                id: DateTime.now()
+                                    .millisecondsSinceEpoch
+                                    .toString(),
                                 version: 0,
                               );
 
                               context.read<SocketBloc>().add(
-                                SocketEvent.sendMessage(message),
-                              );
+                                    SocketEvent.sendMessage(message),
+                                  );
 
                               _handleNewMessage(message);
                               _messageController.clear();

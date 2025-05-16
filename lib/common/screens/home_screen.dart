@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quick_connect/features/chat/presentation/screens/chat_screen.dart';
 import 'package:quick_connect/features/profile/presentation/screens/profile_screen.dart';
-import 'package:quick_connect/features/video/presentation/screens/video_call_screen.dart';
 import 'package:quick_connect/core/colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _screens = [
     const ChatScreen(),
-    const VideoCallScreen(),
     const ProfileScreen(),
   ];
 
@@ -33,10 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.video_call),
-            label: 'Video Call',
-          ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
         selectedItemColor: primaryColor,

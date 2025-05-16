@@ -27,7 +27,7 @@ class SignupRepositoryImpl implements SignupRepository {
       return Left(Failure(message));
     } catch (e) {
       print("SignupRepositoryImpl e ${e.toString()}");
-      return Left(Failure('Unexpected error'));
+      return const Left(Failure('Unexpected error'));
     }
   }
 }

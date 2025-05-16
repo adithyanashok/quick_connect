@@ -69,13 +69,13 @@ class _SplashScreenState extends State<SplashScreen> {
             colors: [Color(0xFFFF0000), Colors.redAccent],
           ),
         ),
-        child: Center(
+        child: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Icon(Icons.flutter_dash, size: 100, color: Colors.white),
-              const SizedBox(height: 20),
-              const Text(
+              Icon(Icons.flutter_dash, size: 100, color: Colors.white),
+              SizedBox(height: 20),
+              Text(
                 'Welcome to Flutter Demo',
                 style: TextStyle(
                   fontSize: 24,
@@ -83,8 +83,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   color: Colors.white,
                 ),
               ),
-              const SizedBox(height: 10),
-              const Text(
+              SizedBox(height: 10),
+              Text(
                 'Get started with your new app!',
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),

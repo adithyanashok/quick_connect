@@ -19,8 +19,8 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
     // Fetch chatted users when the screen loads
-    context.read<SocketBloc>().add(SocketEvent.connect());
-    context.read<ChatBloc>().add(ChatEvent.getChattedUsers());
+    context.read<SocketBloc>().add(const SocketEvent.connect());
+    context.read<ChatBloc>().add(const ChatEvent.getChattedUsers());
   }
 
   @override
@@ -87,7 +87,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
-                      context.read<ChatBloc>().add(ChatEvent.getChattedUsers());
+                      context.read<ChatBloc>().add(const ChatEvent.getChattedUsers());
                     },
                     child: const Text('Retry'),
                   ),

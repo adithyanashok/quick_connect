@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
-    primaryColor: Color(0xFF128C7E), // WhatsApp green
+    primaryColor: const Color(0xFF128C7E), // WhatsApp green
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xFF128C7E),
       elevation: 0,
       iconTheme: IconThemeData(color: Colors.white),
@@ -14,11 +14,11 @@ class AppTheme {
         fontWeight: FontWeight.bold,
       ),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: Color(0xFF128C7E),
       unselectedItemColor: Colors.grey,
     ),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       titleLarge: TextStyle(
         color: Colors.black,
         fontSize: 20,
@@ -27,6 +27,6 @@ class AppTheme {
       bodyLarge: TextStyle(color: Colors.black, fontSize: 16),
       bodyMedium: TextStyle(color: Colors.grey, fontSize: 14),
     ),
-    iconTheme: IconThemeData(color: Color(0xFF128C7E)),
+    iconTheme: const IconThemeData(color: Color(0xFF128C7E)),
   );
 }

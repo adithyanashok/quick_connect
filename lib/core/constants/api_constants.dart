@@ -6,4 +6,5 @@ class ApiConstants {
   static const String register = '$baseUrl/api/users/signup';
   static const String messages = '$baseUrl/api/messages';
   static const String chattedUsers = '$baseUrl/api/chattedUsers/user';
+  static const String getUser = '$baseUrl/api/users/getUser';
 }

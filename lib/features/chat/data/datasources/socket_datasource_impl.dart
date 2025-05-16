@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:quick_connect/core/constants/api_constants.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
@@ -15,8 +14,11 @@ class SocketDataSourceImpl implements SocketDataSource {
   final _typingController = StreamController<String>.broadcast();
   final _stopTypingController = StreamController<String>.broadcast();
 
+  @override
   Stream<MessageModel> get messageStream => _messageController.stream;
+  @override
   Stream<String> get typingStream => _typingController.stream;
+  @override
   Stream<String> get stopTypingStream => _stopTypingController.stream;
 
   SocketDataSourceImpl();
@@ -26,6 +28,7 @@ class SocketDataSourceImpl implements SocketDataSource {
 
   @override
   Future<void> connect(String userId) async {
+    log("Connecting socket for user: $userId");
     _socket = IO.io(ApiConstants.baseUrl, <String, dynamic>{
       'transports': ['websocket'],
       'autoConnect': true,
@@ -35,9 +38,11 @@ class SocketDataSourceImpl implements SocketDataSource {
     _setupSocketListeners();
     _socket?.connect();
     _socket?.emit('user_connected', userId);
+    log("Socket connection initiated");
   }
 
   void _setupSocketListeners() {
+    log("Setting up socket listeners");
     _socket?.on('receive_message', (data) {
       log("RECEIVE MESSAGE $data");
       try {
@@ -69,7 +74,7 @@ class SocketDataSourceImpl implements SocketDataSource {
     });
 
     _socket?.onConnect((_) {
-      log("Socket connected");
+      log("Socket connected successfully");
     });
 
     _socket?.onDisconnect((_) {
@@ -78,6 +83,7 @@ class SocketDataSourceImpl implements SocketDataSource {
 
     _socket?.onError((error) {
       log("Socket error: $error");
+      log("Socket error stack trace: ${StackTrace.current}");
     });
   }
 
@@ -117,6 +123,7 @@ class SocketDataSourceImpl implements SocketDataSource {
     _messageController.close();
     _typingController.close();
     _stopTypingController.close();
+
     _socket?.dispose();
   }
 }

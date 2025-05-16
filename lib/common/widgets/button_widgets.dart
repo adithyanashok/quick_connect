@@ -19,28 +19,28 @@ class PrimaryButton extends StatelessWidget {
         ? ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
             backgroundColor: primaryColor,
             foregroundColor: Colors.white,
           ),
-          child: Text(buttonName, style: TextStyle(fontSize: 16)),
+          child: Text(buttonName, style: const TextStyle(fontSize: 16)),
         )
         : OutlinedButton(
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
-            side: BorderSide(color: Colors.grey, width: 1),
+            side: const BorderSide(color: Colors.grey, width: 1),
             foregroundColor: Colors.grey,
           ),
           child: Text(
             buttonName,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
           ),
         );
   }

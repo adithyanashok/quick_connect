@@ -7,9 +7,10 @@ class SocketState with _$SocketState {
   const factory SocketState.connected() = Connected;
   const factory SocketState.disconnected() = Disconnected;
   const factory SocketState.error(String message) = SocketError;
+  const factory SocketState.typing({required String userId}) = UserTyping;
+  const factory SocketState.stopTyping({required String userId}) =
+      UserStopTyping;
   const factory SocketState.messageSent(MessageModel message) = MessageSent;
   const factory SocketState.messageReceived(MessageModel message) =
       MessageReceived;
-  const factory SocketState.userTyping(String userId) = UserTyping;
-  const factory SocketState.userStopTyping(String userId) = UserStopTyping;
 }

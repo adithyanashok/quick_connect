@@ -11,15 +11,15 @@ class MessageBubble extends StatelessWidget {
     return Align(
       alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        padding: EdgeInsets.all(10),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: isMe ? primaryColor : Colors.grey[300],
           borderRadius: BorderRadius.only(
-            bottomRight: isMe ? Radius.circular(1) : Radius.circular(10),
-            bottomLeft: isMe ? Radius.circular(10) : Radius.circular(1),
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
+            bottomRight: isMe ? const Radius.circular(1) : const Radius.circular(10),
+            bottomLeft: isMe ? const Radius.circular(10) : const Radius.circular(1),
+            topLeft: const Radius.circular(10),
+            topRight: const Radius.circular(10),
           ),
         ),
         child: Text(

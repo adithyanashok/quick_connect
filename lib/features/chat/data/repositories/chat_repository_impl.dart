@@ -39,7 +39,7 @@ class ChatRepositoryImpl implements ChatRepository {
       return Left(Failure(message));
     } catch (e) {
       debugPrint("ERROR $e");
-      return Left(Failure('Unexpected error'));
+      return const Left(Failure('Unexpected error'));
     }
   }
 

@@ -5,11 +5,8 @@ import 'package:injectable/injectable.dart';
 import 'package:quick_connect/core/errors/failure.dart';
 import 'package:quick_connect/features/chat/data/datasources/chat_datasource.dart';
 import 'package:quick_connect/features/chat/data/datasources/socket_datasource.dart';
-import 'package:quick_connect/features/chat/data/models/chatted_users_model/chatted_users_model.dart';
 import 'package:quick_connect/features/chat/data/models/message_model/message_model.dart';
-import 'package:quick_connect/features/chat/domain/repositories/chat_repository.dart';
 import 'package:quick_connect/features/chat/domain/repositories/message_repository.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 @LazySingleton(as: MessageRepository)
 class MessageRepositoryImpl implements MessageRepository {
@@ -71,7 +68,7 @@ class MessageRepositoryImpl implements MessageRepository {
       return Left(Failure(message));
     } catch (e) {
       debugPrint("ERROR $e");
-      return Left(Failure('Unexpected error'));
+      return const Left(Failure('Unexpected error'));
     }
   }
 }

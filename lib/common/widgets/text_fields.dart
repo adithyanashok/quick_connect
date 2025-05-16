@@ -30,7 +30,7 @@ class CustomTextField extends StatelessWidget {
         prefixIcon: Icon(prefixIcon, color: primaryColor),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: primaryColor),
+          borderSide: const BorderSide(color: primaryColor),
         ),
       ),
       validator: validator,

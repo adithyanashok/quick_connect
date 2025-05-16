@@ -30,7 +30,7 @@ class LoginRepositoryImpl implements LoginRepository {
       return Left(Failure(message));
     } catch (e) {
       print("LoginRepositoryImpl e ${e.toString()}");
-      return Left(Failure('Unexpected error'));
+      return const Left(Failure('Unexpected error'));
     }
   }
 }

@@ -41,6 +41,14 @@ import 'package:quick_connect/features/chat/presentation/bloc/message/message_bl
     as _i931;
 import 'package:quick_connect/features/chat/presentation/bloc/socket_bloc/socket_bloc.dart'
     as _i1044;
+import 'package:quick_connect/features/profile/data/datasources/profile_datasource.dart'
+    as _i738;
+import 'package:quick_connect/features/profile/data/repositories/profile_repository_impl.dart'
+    as _i584;
+import 'package:quick_connect/features/profile/domain/repositories/profile_repository.dart'
+    as _i238;
+import 'package:quick_connect/features/profile/presentation/bloc/profile_bloc/profile_bloc.dart'
+    as _i1065;
 import 'package:quick_connect/features/signin/data/datasources/login_datasource.dart'
     as _i533;
 import 'package:quick_connect/features/signin/data/repositories/login_repository_impl.dart'
@@ -63,77 +71,66 @@ import 'package:quick_connect/features/signup/presentation/bloc/signup_bloc.dart
     as _i620;
 
 extension GetItInjectableX on _i174.GetIt {
-  // initializes the registration of main-scope dependencies inside of GetIt
+// initializes the registration of main-scope dependencies inside of GetIt
   _i174.GetIt init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
   }) {
-    final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    final gh = _i526.GetItHelper(
+      this,
+      environment,
+      environmentFilter,
+    );
     final registerModule = _$RegisterModule();
     gh.singleton<_i361.Dio>(() => registerModule.dio);
     gh.lazySingleton<_i291.MessageDatasource>(
-      () => _i291.MessageDatasourceImpl(gh<_i361.Dio>()),
-    );
+        () => _i291.MessageDatasourceImpl(gh<_i361.Dio>()));
     gh.lazySingleton<_i533.LoginDatasource>(
-      () => _i533.LoginDatasourceImpl(gh<_i361.Dio>()),
-    );
+        () => _i533.LoginDatasourceImpl(gh<_i361.Dio>()));
     gh.lazySingleton<_i607.ChatDatasource>(
-      () => _i607.ChatDatasourceImpl(gh<_i361.Dio>()),
-    );
+        () => _i607.ChatDatasourceImpl(gh<_i361.Dio>()));
     gh.lazySingleton<_i831.LoginRepository>(
-      () => _i764.LoginRepositoryImpl(gh<_i533.LoginDatasource>()),
-    );
+        () => _i764.LoginRepositoryImpl(gh<_i533.LoginDatasource>()));
     gh.lazySingleton<_i697.SocketDataSource>(
-      () => _i1018.SocketDataSourceImpl(),
-    );
-    gh.lazySingleton<_i378.MessageRepository>(
-      () => _i552.MessageRepositoryImpl(
-        gh<_i607.ChatDatasource>(),
-        gh<_i697.SocketDataSource>(),
-      ),
-    );
+        () => _i1018.SocketDataSourceImpl());
+    gh.lazySingleton<_i378.MessageRepository>(() => _i552.MessageRepositoryImpl(
+          gh<_i607.ChatDatasource>(),
+          gh<_i697.SocketDataSource>(),
+        ));
     gh.lazySingleton<_i1061.SignupDatasource>(
-      () => _i1061.SignupDatasourceImpl(gh<_i361.Dio>()),
-    );
+        () => _i1061.SignupDatasourceImpl(gh<_i361.Dio>()));
+    gh.lazySingleton<_i738.ProfileDatasource>(
+        () => _i738.ProfileDatasourceImpl(gh<_i361.Dio>()));
     gh.lazySingleton<_i357.GetMessageUsecase>(
-      () => _i357.GetMessageUsecase(gh<_i378.MessageRepository>()),
-    );
+        () => _i357.GetMessageUsecase(gh<_i378.MessageRepository>()));
     gh.lazySingleton<_i266.LoginUseCase>(
-      () => _i266.LoginUseCase(gh<_i831.LoginRepository>()),
-    );
+        () => _i266.LoginUseCase(gh<_i831.LoginRepository>()));
+    gh.lazySingleton<_i238.ProfileRepository>(
+        () => _i584.ProfileRepositoryImpl(gh<_i738.ProfileDatasource>()));
     gh.lazySingleton<_i475.SignupRepository>(
-      () => _i863.SignupRepositoryImpl(gh<_i1061.SignupDatasource>()),
-    );
-    gh.lazySingleton<_i1.ChatRepository>(
-      () => _i761.ChatRepositoryImpl(
-        gh<_i607.ChatDatasource>(),
-        gh<_i697.SocketDataSource>(),
-      ),
-    );
+        () => _i863.SignupRepositoryImpl(gh<_i1061.SignupDatasource>()));
+    gh.lazySingleton<_i1.ChatRepository>(() => _i761.ChatRepositoryImpl(
+          gh<_i607.ChatDatasource>(),
+          gh<_i697.SocketDataSource>(),
+        ));
     gh.lazySingleton<_i338.SignupUseCase>(
-      () => _i338.SignupUseCase(gh<_i475.SignupRepository>()),
-    );
+        () => _i338.SignupUseCase(gh<_i475.SignupRepository>()));
+    gh.factory<_i1065.ProfileBloc>(
+        () => _i1065.ProfileBloc(gh<_i238.ProfileRepository>()));
     gh.factory<_i898.LoginBloc>(
-      () => _i898.LoginBloc(gh<_i266.LoginUseCase>()),
-    );
+        () => _i898.LoginBloc(gh<_i266.LoginUseCase>()));
     gh.factory<_i931.MessageBloc>(
-      () => _i931.MessageBloc(gh<_i357.GetMessageUsecase>()),
-    );
+        () => _i931.MessageBloc(gh<_i357.GetMessageUsecase>()));
     gh.factory<_i1044.SocketBloc>(
-      () => _i1044.SocketBloc(gh<_i1.ChatRepository>()),
-    );
+        () => _i1044.SocketBloc(gh<_i1.ChatRepository>()));
     gh.lazySingleton<_i556.ConnectSocketUseCase>(
-      () => _i556.ConnectSocketUseCase(gh<_i1.ChatRepository>()),
-    );
+        () => _i556.ConnectSocketUseCase(gh<_i1.ChatRepository>()));
     gh.lazySingleton<_i423.GetChattedUsersUseCase>(
-      () => _i423.GetChattedUsersUseCase(gh<_i1.ChatRepository>()),
-    );
+        () => _i423.GetChattedUsersUseCase(gh<_i1.ChatRepository>()));
     gh.factory<_i620.SignupBloc>(
-      () => _i620.SignupBloc(gh<_i338.SignupUseCase>()),
-    );
+        () => _i620.SignupBloc(gh<_i338.SignupUseCase>()));
     gh.factory<_i523.ChatBloc>(
-      () => _i523.ChatBloc(gh<_i423.GetChattedUsersUseCase>()),
-    );
+        () => _i523.ChatBloc(gh<_i423.GetChattedUsersUseCase>()));
     return this;
   }
 }

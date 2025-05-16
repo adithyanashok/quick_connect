@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:quick_connect/core/constants/api_constants.dart';
-import 'package:quick_connect/features/chat/data/models/chatted_users_model/chatted_users_model.dart';
 import 'package:quick_connect/features/chat/data/models/message_model/message_model.dart';
 
 abstract class MessageDatasource {

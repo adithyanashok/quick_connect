@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bloc/src/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:quick_connect/features/chat/data/models/message_model/message_model.dart';
@@ -57,7 +57,7 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
 
     _typingSubscription = _chatRepository.typingStream.listen(
       (userId) {
-        emit(SocketState.userTyping(userId));
+        emit(SocketState.typing(userId: userId));
       },
       onError: (error) {
         emit(SocketState.error(error.toString()));
@@ -66,7 +66,7 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
 
     _stopTypingSubscription = _chatRepository.stopTypingStream.listen(
       (userId) {
-        emit(SocketState.userStopTyping(userId));
+        emit(SocketState.stopTyping(userId: userId));
       },
       onError: (error) {
         emit(SocketState.error(error.toString()));
@@ -115,7 +115,6 @@ class SocketBloc extends Bloc<SocketEvent, SocketState> {
     _messageSubscription?.cancel();
     _typingSubscription?.cancel();
     _stopTypingSubscription?.cancel();
-    _chatRepository.dispose();
     return super.close();
   }
 }

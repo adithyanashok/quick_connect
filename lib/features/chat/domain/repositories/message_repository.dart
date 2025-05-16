@@ -1,7 +1,6 @@
 import '../../data/models/message_model/message_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:quick_connect/core/errors/failure.dart';
-import 'package:quick_connect/features/chat/data/models/chatted_users_model/chatted_users_model.dart';
 
 abstract class MessageRepository {
   // Future<void> connect(String userId);

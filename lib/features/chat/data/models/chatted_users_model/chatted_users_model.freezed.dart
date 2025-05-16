@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,305 +9,516 @@ part of 'chatted_users_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+ChattedUsersModel _$ChattedUsersModelFromJson(Map<String, dynamic> json) {
+  return _ChattedUsersModel.fromJson(json);
+}
 
 /// @nodoc
 mixin _$ChattedUsersModel {
-
- List<UserModel> get chattedUsers; String get time; String get message;
-/// Create a copy of ChattedUsersModel
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$ChattedUsersModelCopyWith<ChattedUsersModel> get copyWith => _$ChattedUsersModelCopyWithImpl<ChattedUsersModel>(this as ChattedUsersModel, _$identity);
+  List<UserModel> get chattedUsers => throw _privateConstructorUsedError;
+  String get time => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
 
   /// Serializes this ChattedUsersModel to a JSON map.
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ChattedUsersModel&&const DeepCollectionEquality().equals(other.chattedUsers, chattedUsers)&&(identical(other.time, time) || other.time == time)&&(identical(other.message, message) || other.message == message));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(chattedUsers),time,message);
-
-@override
-String toString() {
-  return 'ChattedUsersModel(chattedUsers: $chattedUsers, time: $time, message: $message)';
-}
-
-
+  /// Create a copy of ChattedUsersModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ChattedUsersModelCopyWith<ChattedUsersModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $ChattedUsersModelCopyWith<$Res>  {
-  factory $ChattedUsersModelCopyWith(ChattedUsersModel value, $Res Function(ChattedUsersModel) _then) = _$ChattedUsersModelCopyWithImpl;
-@useResult
-$Res call({
- List<UserModel> chattedUsers, String time, String message
-});
-
-
-
-
+abstract class $ChattedUsersModelCopyWith<$Res> {
+  factory $ChattedUsersModelCopyWith(
+          ChattedUsersModel value, $Res Function(ChattedUsersModel) then) =
+      _$ChattedUsersModelCopyWithImpl<$Res, ChattedUsersModel>;
+  @useResult
+  $Res call({List<UserModel> chattedUsers, String time, String message});
 }
+
 /// @nodoc
-class _$ChattedUsersModelCopyWithImpl<$Res>
+class _$ChattedUsersModelCopyWithImpl<$Res, $Val extends ChattedUsersModel>
     implements $ChattedUsersModelCopyWith<$Res> {
-  _$ChattedUsersModelCopyWithImpl(this._self, this._then);
+  _$ChattedUsersModelCopyWithImpl(this._value, this._then);
 
-  final ChattedUsersModel _self;
-  final $Res Function(ChattedUsersModel) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of ChattedUsersModel
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? chattedUsers = null,Object? time = null,Object? message = null,}) {
-  return _then(_self.copyWith(
-chattedUsers: null == chattedUsers ? _self.chattedUsers : chattedUsers // ignore: cast_nullable_to_non_nullable
-as List<UserModel>,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
-as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
+  /// Create a copy of ChattedUsersModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? chattedUsers = null,
+    Object? time = null,
+    Object? message = null,
+  }) {
+    return _then(_value.copyWith(
+      chattedUsers: null == chattedUsers
+          ? _value.chattedUsers
+          : chattedUsers // ignore: cast_nullable_to_non_nullable
+              as List<UserModel>,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
+/// @nodoc
+abstract class _$$ChattedUsersModelImplCopyWith<$Res>
+    implements $ChattedUsersModelCopyWith<$Res> {
+  factory _$$ChattedUsersModelImplCopyWith(_$ChattedUsersModelImpl value,
+          $Res Function(_$ChattedUsersModelImpl) then) =
+      __$$ChattedUsersModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<UserModel> chattedUsers, String time, String message});
 }
 
+/// @nodoc
+class __$$ChattedUsersModelImplCopyWithImpl<$Res>
+    extends _$ChattedUsersModelCopyWithImpl<$Res, _$ChattedUsersModelImpl>
+    implements _$$ChattedUsersModelImplCopyWith<$Res> {
+  __$$ChattedUsersModelImplCopyWithImpl(_$ChattedUsersModelImpl _value,
+      $Res Function(_$ChattedUsersModelImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChattedUsersModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? chattedUsers = null,
+    Object? time = null,
+    Object? message = null,
+  }) {
+    return _then(_$ChattedUsersModelImpl(
+      chattedUsers: null == chattedUsers
+          ? _value._chattedUsers
+          : chattedUsers // ignore: cast_nullable_to_non_nullable
+              as List<UserModel>,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
 
 /// @nodoc
 @JsonSerializable()
+class _$ChattedUsersModelImpl implements _ChattedUsersModel {
+  const _$ChattedUsersModelImpl(
+      {required final List<UserModel> chattedUsers,
+      required this.time,
+      required this.message})
+      : _chattedUsers = chattedUsers;
 
-class _ChattedUsersModel implements ChattedUsersModel {
-  const _ChattedUsersModel({required final  List<UserModel> chattedUsers, required this.time, required this.message}): _chattedUsers = chattedUsers;
-  factory _ChattedUsersModel.fromJson(Map<String, dynamic> json) => _$ChattedUsersModelFromJson(json);
+  factory _$ChattedUsersModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChattedUsersModelImplFromJson(json);
 
- final  List<UserModel> _chattedUsers;
-@override List<UserModel> get chattedUsers {
-  if (_chattedUsers is EqualUnmodifiableListView) return _chattedUsers;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_chattedUsers);
+  final List<UserModel> _chattedUsers;
+  @override
+  List<UserModel> get chattedUsers {
+    if (_chattedUsers is EqualUnmodifiableListView) return _chattedUsers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_chattedUsers);
+  }
+
+  @override
+  final String time;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ChattedUsersModel(chattedUsers: $chattedUsers, time: $time, message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChattedUsersModelImpl &&
+            const DeepCollectionEquality()
+                .equals(other._chattedUsers, _chattedUsers) &&
+            (identical(other.time, time) || other.time == time) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_chattedUsers), time, message);
+
+  /// Create a copy of ChattedUsersModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChattedUsersModelImplCopyWith<_$ChattedUsersModelImpl> get copyWith =>
+      __$$ChattedUsersModelImplCopyWithImpl<_$ChattedUsersModelImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ChattedUsersModelImplToJson(
+      this,
+    );
+  }
 }
 
-@override final  String time;
-@override final  String message;
+abstract class _ChattedUsersModel implements ChattedUsersModel {
+  const factory _ChattedUsersModel(
+      {required final List<UserModel> chattedUsers,
+      required final String time,
+      required final String message}) = _$ChattedUsersModelImpl;
 
-/// Create a copy of ChattedUsersModel
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$ChattedUsersModelCopyWith<_ChattedUsersModel> get copyWith => __$ChattedUsersModelCopyWithImpl<_ChattedUsersModel>(this, _$identity);
+  factory _ChattedUsersModel.fromJson(Map<String, dynamic> json) =
+      _$ChattedUsersModelImpl.fromJson;
 
-@override
-Map<String, dynamic> toJson() {
-  return _$ChattedUsersModelToJson(this, );
+  @override
+  List<UserModel> get chattedUsers;
+  @override
+  String get time;
+  @override
+  String get message;
+
+  /// Create a copy of ChattedUsersModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChattedUsersModelImplCopyWith<_$ChattedUsersModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ChattedUsersModel&&const DeepCollectionEquality().equals(other._chattedUsers, _chattedUsers)&&(identical(other.time, time) || other.time == time)&&(identical(other.message, message) || other.message == message));
+UserModel _$UserModelFromJson(Map<String, dynamic> json) {
+  return _UserModel.fromJson(json);
 }
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_chattedUsers),time,message);
-
-@override
-String toString() {
-  return 'ChattedUsersModel(chattedUsers: $chattedUsers, time: $time, message: $message)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$ChattedUsersModelCopyWith<$Res> implements $ChattedUsersModelCopyWith<$Res> {
-  factory _$ChattedUsersModelCopyWith(_ChattedUsersModel value, $Res Function(_ChattedUsersModel) _then) = __$ChattedUsersModelCopyWithImpl;
-@override @useResult
-$Res call({
- List<UserModel> chattedUsers, String time, String message
-});
-
-
-
-
-}
-/// @nodoc
-class __$ChattedUsersModelCopyWithImpl<$Res>
-    implements _$ChattedUsersModelCopyWith<$Res> {
-  __$ChattedUsersModelCopyWithImpl(this._self, this._then);
-
-  final _ChattedUsersModel _self;
-  final $Res Function(_ChattedUsersModel) _then;
-
-/// Create a copy of ChattedUsersModel
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? chattedUsers = null,Object? time = null,Object? message = null,}) {
-  return _then(_ChattedUsersModel(
-chattedUsers: null == chattedUsers ? _self._chattedUsers : chattedUsers // ignore: cast_nullable_to_non_nullable
-as List<UserModel>,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
-as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
 
 /// @nodoc
 mixin _$UserModel {
-
- String get username; String get email; String get avatarUrl; bool get isOnline; String get lastMessage;@JsonKey(name: '_id') String get id; DateTime get lastSeen;@JsonKey(name: '__v') dynamic get version;
-/// Create a copy of UserModel
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$UserModelCopyWith<UserModel> get copyWith => _$UserModelCopyWithImpl<UserModel>(this as UserModel, _$identity);
+  String get username => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get avatarUrl => throw _privateConstructorUsedError;
+  bool get isOnline => throw _privateConstructorUsedError;
+  String get lastMessage => throw _privateConstructorUsedError;
+  @JsonKey(name: '_id')
+  String get id => throw _privateConstructorUsedError;
+  DateTime get lastSeen => throw _privateConstructorUsedError;
+  @JsonKey(name: '__v')
+  dynamic get version => throw _privateConstructorUsedError;
 
   /// Serializes this UserModel to a JSON map.
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserModel&&(identical(other.username, username) || other.username == username)&&(identical(other.email, email) || other.email == email)&&(identical(other.avatarUrl, avatarUrl) || other.avatarUrl == avatarUrl)&&(identical(other.isOnline, isOnline) || other.isOnline == isOnline)&&(identical(other.lastMessage, lastMessage) || other.lastMessage == lastMessage)&&(identical(other.id, id) || other.id == id)&&(identical(other.lastSeen, lastSeen) || other.lastSeen == lastSeen)&&const DeepCollectionEquality().equals(other.version, version));
-}
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,username,email,avatarUrl,isOnline,lastMessage,id,lastSeen,const DeepCollectionEquality().hash(version));
-
-@override
-String toString() {
-  return 'UserModel(username: $username, email: $email, avatarUrl: $avatarUrl, isOnline: $isOnline, lastMessage: $lastMessage, id: $id, lastSeen: $lastSeen, version: $version)';
-}
-
-
+  /// Create a copy of UserModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserModelCopyWith<UserModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $UserModelCopyWith<$Res>  {
-  factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) _then) = _$UserModelCopyWithImpl;
-@useResult
-$Res call({
- String username, String email, String avatarUrl, bool isOnline, String lastMessage,@JsonKey(name: '_id') String id, DateTime lastSeen,@JsonKey(name: '__v') dynamic version
-});
-
-
-
-
+abstract class $UserModelCopyWith<$Res> {
+  factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
+      _$UserModelCopyWithImpl<$Res, UserModel>;
+  @useResult
+  $Res call(
+      {String username,
+      String email,
+      String avatarUrl,
+      bool isOnline,
+      String lastMessage,
+      @JsonKey(name: '_id') String id,
+      DateTime lastSeen,
+      @JsonKey(name: '__v') dynamic version});
 }
+
 /// @nodoc
-class _$UserModelCopyWithImpl<$Res>
+class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     implements $UserModelCopyWith<$Res> {
-  _$UserModelCopyWithImpl(this._self, this._then);
+  _$UserModelCopyWithImpl(this._value, this._then);
 
-  final UserModel _self;
-  final $Res Function(UserModel) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of UserModel
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? username = null,Object? email = null,Object? avatarUrl = null,Object? isOnline = null,Object? lastMessage = null,Object? id = null,Object? lastSeen = null,Object? version = freezed,}) {
-  return _then(_self.copyWith(
-username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
-as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as String,avatarUrl: null == avatarUrl ? _self.avatarUrl : avatarUrl // ignore: cast_nullable_to_non_nullable
-as String,isOnline: null == isOnline ? _self.isOnline : isOnline // ignore: cast_nullable_to_non_nullable
-as bool,lastMessage: null == lastMessage ? _self.lastMessage : lastMessage // ignore: cast_nullable_to_non_nullable
-as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,lastSeen: null == lastSeen ? _self.lastSeen : lastSeen // ignore: cast_nullable_to_non_nullable
-as DateTime,version: freezed == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
-as dynamic,
-  ));
+  /// Create a copy of UserModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? username = null,
+    Object? email = null,
+    Object? avatarUrl = null,
+    Object? isOnline = null,
+    Object? lastMessage = null,
+    Object? id = null,
+    Object? lastSeen = null,
+    Object? version = freezed,
+  }) {
+    return _then(_value.copyWith(
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatarUrl: null == avatarUrl
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      isOnline: null == isOnline
+          ? _value.isOnline
+          : isOnline // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lastMessage: null == lastMessage
+          ? _value.lastMessage
+          : lastMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastSeen: null == lastSeen
+          ? _value.lastSeen
+          : lastSeen // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      version: freezed == version
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ) as $Val);
+  }
 }
 
+/// @nodoc
+abstract class _$$UserModelImplCopyWith<$Res>
+    implements $UserModelCopyWith<$Res> {
+  factory _$$UserModelImplCopyWith(
+          _$UserModelImpl value, $Res Function(_$UserModelImpl) then) =
+      __$$UserModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String username,
+      String email,
+      String avatarUrl,
+      bool isOnline,
+      String lastMessage,
+      @JsonKey(name: '_id') String id,
+      DateTime lastSeen,
+      @JsonKey(name: '__v') dynamic version});
 }
 
+/// @nodoc
+class __$$UserModelImplCopyWithImpl<$Res>
+    extends _$UserModelCopyWithImpl<$Res, _$UserModelImpl>
+    implements _$$UserModelImplCopyWith<$Res> {
+  __$$UserModelImplCopyWithImpl(
+      _$UserModelImpl _value, $Res Function(_$UserModelImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? username = null,
+    Object? email = null,
+    Object? avatarUrl = null,
+    Object? isOnline = null,
+    Object? lastMessage = null,
+    Object? id = null,
+    Object? lastSeen = null,
+    Object? version = freezed,
+  }) {
+    return _then(_$UserModelImpl(
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatarUrl: null == avatarUrl
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      isOnline: null == isOnline
+          ? _value.isOnline
+          : isOnline // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lastMessage: null == lastMessage
+          ? _value.lastMessage
+          : lastMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastSeen: null == lastSeen
+          ? _value.lastSeen
+          : lastSeen // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      version: freezed == version
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
 
 /// @nodoc
 @JsonSerializable()
+class _$UserModelImpl implements _UserModel {
+  const _$UserModelImpl(
+      {required this.username,
+      required this.email,
+      required this.avatarUrl,
+      required this.isOnline,
+      required this.lastMessage,
+      @JsonKey(name: '_id') required this.id,
+      required this.lastSeen,
+      @JsonKey(name: '__v') required this.version});
 
-class _UserModel implements UserModel {
-  const _UserModel({required this.username, required this.email, required this.avatarUrl, required this.isOnline, required this.lastMessage, @JsonKey(name: '_id') required this.id, required this.lastSeen, @JsonKey(name: '__v') required this.version});
-  factory _UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
+  factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserModelImplFromJson(json);
 
-@override final  String username;
-@override final  String email;
-@override final  String avatarUrl;
-@override final  bool isOnline;
-@override final  String lastMessage;
-@override@JsonKey(name: '_id') final  String id;
-@override final  DateTime lastSeen;
-@override@JsonKey(name: '__v') final  dynamic version;
+  @override
+  final String username;
+  @override
+  final String email;
+  @override
+  final String avatarUrl;
+  @override
+  final bool isOnline;
+  @override
+  final String lastMessage;
+  @override
+  @JsonKey(name: '_id')
+  final String id;
+  @override
+  final DateTime lastSeen;
+  @override
+  @JsonKey(name: '__v')
+  final dynamic version;
 
-/// Create a copy of UserModel
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$UserModelCopyWith<_UserModel> get copyWith => __$UserModelCopyWithImpl<_UserModel>(this, _$identity);
+  @override
+  String toString() {
+    return 'UserModel(username: $username, email: $email, avatarUrl: $avatarUrl, isOnline: $isOnline, lastMessage: $lastMessage, id: $id, lastSeen: $lastSeen, version: $version)';
+  }
 
-@override
-Map<String, dynamic> toJson() {
-  return _$UserModelToJson(this, );
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserModelImpl &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.avatarUrl, avatarUrl) ||
+                other.avatarUrl == avatarUrl) &&
+            (identical(other.isOnline, isOnline) ||
+                other.isOnline == isOnline) &&
+            (identical(other.lastMessage, lastMessage) ||
+                other.lastMessage == lastMessage) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.lastSeen, lastSeen) ||
+                other.lastSeen == lastSeen) &&
+            const DeepCollectionEquality().equals(other.version, version));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      username,
+      email,
+      avatarUrl,
+      isOnline,
+      lastMessage,
+      id,
+      lastSeen,
+      const DeepCollectionEquality().hash(version));
+
+  /// Create a copy of UserModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>
+      __$$UserModelImplCopyWithImpl<_$UserModelImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserModelImplToJson(
+      this,
+    );
+  }
 }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserModel&&(identical(other.username, username) || other.username == username)&&(identical(other.email, email) || other.email == email)&&(identical(other.avatarUrl, avatarUrl) || other.avatarUrl == avatarUrl)&&(identical(other.isOnline, isOnline) || other.isOnline == isOnline)&&(identical(other.lastMessage, lastMessage) || other.lastMessage == lastMessage)&&(identical(other.id, id) || other.id == id)&&(identical(other.lastSeen, lastSeen) || other.lastSeen == lastSeen)&&const DeepCollectionEquality().equals(other.version, version));
+abstract class _UserModel implements UserModel {
+  const factory _UserModel(
+      {required final String username,
+      required final String email,
+      required final String avatarUrl,
+      required final bool isOnline,
+      required final String lastMessage,
+      @JsonKey(name: '_id') required final String id,
+      required final DateTime lastSeen,
+      @JsonKey(name: '__v') required final dynamic version}) = _$UserModelImpl;
+
+  factory _UserModel.fromJson(Map<String, dynamic> json) =
+      _$UserModelImpl.fromJson;
+
+  @override
+  String get username;
+  @override
+  String get email;
+  @override
+  String get avatarUrl;
+  @override
+  bool get isOnline;
+  @override
+  String get lastMessage;
+  @override
+  @JsonKey(name: '_id')
+  String get id;
+  @override
+  DateTime get lastSeen;
+  @override
+  @JsonKey(name: '__v')
+  dynamic get version;
+
+  /// Create a copy of UserModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-int get hashCode => Object.hash(runtimeType,username,email,avatarUrl,isOnline,lastMessage,id,lastSeen,const DeepCollectionEquality().hash(version));
-
-@override
-String toString() {
-  return 'UserModel(username: $username, email: $email, avatarUrl: $avatarUrl, isOnline: $isOnline, lastMessage: $lastMessage, id: $id, lastSeen: $lastSeen, version: $version)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
-  factory _$UserModelCopyWith(_UserModel value, $Res Function(_UserModel) _then) = __$UserModelCopyWithImpl;
-@override @useResult
-$Res call({
- String username, String email, String avatarUrl, bool isOnline, String lastMessage,@JsonKey(name: '_id') String id, DateTime lastSeen,@JsonKey(name: '__v') dynamic version
-});
-
-
-
-
-}
-/// @nodoc
-class __$UserModelCopyWithImpl<$Res>
-    implements _$UserModelCopyWith<$Res> {
-  __$UserModelCopyWithImpl(this._self, this._then);
-
-  final _UserModel _self;
-  final $Res Function(_UserModel) _then;
-
-/// Create a copy of UserModel
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? username = null,Object? email = null,Object? avatarUrl = null,Object? isOnline = null,Object? lastMessage = null,Object? id = null,Object? lastSeen = null,Object? version = freezed,}) {
-  return _then(_UserModel(
-username: null == username ? _self.username : username // ignore: cast_nullable_to_non_nullable
-as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as String,avatarUrl: null == avatarUrl ? _self.avatarUrl : avatarUrl // ignore: cast_nullable_to_non_nullable
-as String,isOnline: null == isOnline ? _self.isOnline : isOnline // ignore: cast_nullable_to_non_nullable
-as bool,lastMessage: null == lastMessage ? _self.lastMessage : lastMessage // ignore: cast_nullable_to_non_nullable
-as String,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,lastSeen: null == lastSeen ? _self.lastSeen : lastSeen // ignore: cast_nullable_to_non_nullable
-as DateTime,version: freezed == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
-as dynamic,
-  ));
-}
-
-
-}
-
-// dart format on

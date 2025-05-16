@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_connect/common/screens/home_screen.dart';
 import 'package:quick_connect/common/widgets/button_widgets.dart';
 import 'package:quick_connect/common/widgets/text_fields.dart';
-import 'package:quick_connect/core/colors.dart';
 import 'package:quick_connect/core/utils/snackbar_utils.dart';
 import 'package:quick_connect/features/signin/data/models/login_model.dart';
 import 'package:quick_connect/features/signin/presentation/bloc/login_bloc.dart';
